@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="room"
+            type="org.wang.online.model.Room" />
+    </data>
+
+    <com.facebook.drawee.view.SimpleDraweeView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{room.onClick}"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        app:actualImageScaleType="fitXY"
+        app:imageURI="@{TextUtils.isEmpty(room.thumb)?room.player.thumb:room.thumb}"
+        app:placeholderImage="@mipmap/loading_default"
+        app:placeholderImageScaleType="centerCrop"
+        app:roundedCornerRadius="2dp"
+        app:viewAspectRatio="2.2" />
+</layout>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="model"
+            type="org.wang.online.model.Room" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/room"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{model.onClick}"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/room_thumb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                app:imageURI="@{model.player.thumb}"
+                app:placeholderImage="@mipmap/loading_default"
+                app:roundedCornerRadius="5dp"
+                app:viewAspectRatio="1.9" />
+
+            <org.wang.online.view.MyDraweeView
+                android:id="@+id/room_avatar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="8dp"
+                app:imageURI="@{model.player.avatar}"
+                app:placeholderImage="@mipmap/ic_head"
+                app:roundAsCircle="true"
+                app:roundingBorderColor="@color/text_white"
+                app:roundingBorderWidth="2dp" />
+
+            <TextView
+                android:id="@+id/room_nick"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_gravity="bottom"
+                android:paddingLeft="50dp"
+                android:text="@{model.player.nick}"
+                android:textColor="@color/text_black"
+                android:textSize="13sp" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp">
+
+            <TextView
+                android:id="@+id/room_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/shape_bg_gray_rectangle_corners_3dp"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:text="@{model.player.view}"
+                android:textColor="@color/text_black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/room_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:singleLine="true"
+                android:text="@{model.player.title}"
+                android:textColor="@color/text_grey"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

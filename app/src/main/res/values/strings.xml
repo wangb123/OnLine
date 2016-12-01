@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">直播</string>
+    <string name="home_tab_recommend">推荐</string>
+    <string name="home_tab_column">栏目</string>
+    <string name="home_tab_online">直播</string>
+    <string name="home_tab_self">我的</string>
+
+    <string name="exchange">换一换</string>
+    <string name="go">进去看看</string>
+</resources>
