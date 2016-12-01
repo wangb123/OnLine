@@ -13,7 +13,7 @@
     <com.facebook.drawee.view.SimpleDraweeView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{room.onClick}"
+        android:onClick="@{room.player.onClick}"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         app:actualImageScaleType="fitXY"

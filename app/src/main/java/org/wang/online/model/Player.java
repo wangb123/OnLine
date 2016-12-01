@@ -1,5 +1,7 @@
 package org.wang.online.model;
 
+import android.view.View;
+
 /**
  * 主播
  * Created by 王冰 on 2016/11/29.
@@ -313,5 +315,9 @@ public class Player {
 
     public void setHidden(boolean hidden) {
         this.hidden = hidden;
+    }
+
+    public void onClick(View view) {
+
     }
 }

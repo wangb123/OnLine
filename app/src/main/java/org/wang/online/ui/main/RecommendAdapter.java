@@ -111,7 +111,12 @@ public class RecommendAdapter extends RecyclerView.Adapter<Holder> {
 
     private class RecommendHolder extends Holder<RoomGroup, ItemRecommendBinding> implements View.OnClickListener {
         int page;
-        BaseAdapter<Room, ItemRoomBinding> adapter = new BaseAdapter.SimpleAdapter<>(R.layout.item_room);
+        BaseAdapter<Room, ItemRoomBinding> adapter = new BaseAdapter.SimpleAdapter<Room, ItemRoomBinding>(R.layout.item_room){
+            @Override
+            public void onBindViewHolder(Holder<Room, ItemRoomBinding> holder, int position) {
+             holder.getBinding().setModel(getList().get(position).getPlayer());
+            }
+        };
 
         public RecommendHolder(View itemView) {
             super(itemView);

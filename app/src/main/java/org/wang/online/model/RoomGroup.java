@@ -165,7 +165,7 @@ public class RoomGroup implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        LogUtils.e("RoomGroup " + getCategory_slug());
+        LogUtils.e("RoomGroup " + (TextUtils.isEmpty(getCategory_slug()) ? getSlug() : getCategory_slug()));
     }
 
     public static class Ext {

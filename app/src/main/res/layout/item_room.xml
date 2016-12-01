@@ -5,7 +5,7 @@
 
         <variable
             name="model"
-            type="org.wang.online.model.Room" />
+            type="org.wang.online.model.Player" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -27,7 +27,7 @@
                 android:layout_marginBottom="20dp"
                 android:paddingLeft="4dp"
                 android:paddingRight="4dp"
-                app:imageURI="@{model.player.thumb}"
+                app:imageURI="@{model.thumb}"
                 app:placeholderImage="@mipmap/loading_default"
                 app:roundedCornerRadius="5dp"
                 app:viewAspectRatio="1.9" />
@@ -38,7 +38,7 @@
                 android:layout_height="40dp"
                 android:layout_gravity="bottom"
                 android:layout_marginLeft="8dp"
-                app:imageURI="@{model.player.avatar}"
+                app:imageURI="@{model.avatar}"
                 app:placeholderImage="@mipmap/ic_head"
                 app:roundAsCircle="true"
                 app:roundingBorderColor="@color/text_white"
@@ -50,7 +50,7 @@
                 android:layout_height="20dp"
                 android:layout_gravity="bottom"
                 android:paddingLeft="50dp"
-                android:text="@{model.player.nick}"
+                android:text="@{model.nick}"
                 android:textColor="@color/text_black"
                 android:textSize="13sp" />
 
@@ -71,7 +71,7 @@
                 android:background="@drawable/shape_bg_gray_rectangle_corners_3dp"
                 android:paddingLeft="2dp"
                 android:paddingRight="2dp"
-                android:text="@{model.player.view}"
+                android:text="@{model.view}"
                 android:textColor="@color/text_black"
                 android:textSize="12sp" />
 
@@ -81,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
                 android:singleLine="true"
-                android:text="@{model.player.title}"
+                android:text="@{model.title}"
                 android:textColor="@color/text_grey"
                 android:textSize="12sp" />
         </LinearLayout>

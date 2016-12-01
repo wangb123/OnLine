@@ -7,7 +7,7 @@
 
     <declare-styleable name="PagingRecyclerView">
 
-        <attr name="empty_layout" format="reference" />
+        <attr name="emptyLayout" format="reference" />
 
     </declare-styleable>
 

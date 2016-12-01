@@ -27,7 +27,7 @@ public abstract class BaseAdapter<Data, Binding extends ViewDataBinding> extends
 
     @Override
     public final Holder<Data, Binding> onCreateViewHolder(ViewGroup parent, int viewType) {
-        Holder<Data, Binding> holder = new Holder<>(LayoutInflater.from(parent.getContext()).inflate(holderLayout(), null, false));
+        Holder<Data, Binding> holder = new Holder<>(LayoutInflater.from(parent.getContext()).inflate(holderLayout(), parent, false));
         initHolder(holder, viewType);
         return holder;
     }
@@ -83,6 +83,12 @@ public abstract class BaseAdapter<Data, Binding extends ViewDataBinding> extends
     public void remove(Data data) {
         if (getItemCount() == 0) return;
         remove(this.list.indexOf(data));
+    }
+
+    public void removeAll() {
+        if (getItemCount() == 0) return;
+        this.list.clear();
+        notifyDataSetChanged();
     }
 
     public abstract int holderLayout();

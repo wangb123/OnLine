@@ -1,10 +1,6 @@
 package org.wang.online.model;
 
-import android.view.View;
-
 import com.google.gson.annotations.SerializedName;
-
-import org.wang.online.util.LogUtils;
 
 /**
  * 直播间
@@ -131,7 +127,4 @@ public class Room {
         this.player = player;
     }
 
-    public void onClick(View view) {
-        LogUtils.e("Room "+player.getUid());
-    }
 }

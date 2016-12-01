@@ -16,10 +16,18 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         context.startActivity(starter);
     }
 
+    int index;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getBinding().setModel(new MainViewModel(new MainAdapter(getSupportFragmentManager())));
+        getBinding().content.setCurrentItem(index);
+    }
+
+    @Override
+    protected void getParams(Intent intent) {
+        index = intent.getIntExtra("index", 0);
     }
 
     @Override
