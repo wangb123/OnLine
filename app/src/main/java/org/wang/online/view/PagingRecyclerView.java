@@ -223,10 +223,10 @@ public class PagingRecyclerView extends RecyclerView {
                     str = "正在加载中";
                     break;
                 case LoadFail:
-                    str = "加载失败,点击刷新";
+                    str = "加载失败,点击重试";
                     break;
                 case Loaded:
-                    str = "没有直播";
+                    str = "没有更多了";
                     break;
                 case Refresh:
                     str = "正在刷新";
@@ -247,7 +247,7 @@ public class PagingRecyclerView extends RecyclerView {
                     str = "正在加载中";
                     break;
                 case LoadFail:
-                    str = "加载失败,点击刷新";
+                    str = "加载失败,点击重试";
                     break;
                 case Loaded:
                     str = "没有更多了";

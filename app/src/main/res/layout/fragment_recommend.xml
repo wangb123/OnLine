@@ -48,11 +48,14 @@
             <android.support.v4.widget.SwipeRefreshLayout
                 android:id="@+id/refresh"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                app:onRefreshListener="@{data.listener}"
+                app:refreshing="@{data.refreshing}">
 
-                <android.support.v7.widget.RecyclerView
+                <org.wang.online.view.PagingRecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    app:emptyLayout="@layout/empty_view"
                     app:adapter="@{data.adapter}"
                     app:layoutManager="@{data.manager}" />
 
