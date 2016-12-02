@@ -51,7 +51,8 @@
                 android:layout_height="match_parent"
                 android:clipToPadding="false"
                 android:paddingTop="4dp"
-                app:emptyLayout="@layout/activity_splash"/>
+                app:bottomLayout="@layout/load_view"
+                app:emptyLayout="@layout/empty_view" />
         </android.support.v4.widget.SwipeRefreshLayout>
 
 

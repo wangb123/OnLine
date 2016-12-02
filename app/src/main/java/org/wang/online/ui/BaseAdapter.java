@@ -63,13 +63,25 @@ public abstract class BaseAdapter<Data, Binding extends ViewDataBinding> extends
     }
 
     public void addItems(List<Data> datas) {
-        if (this.list == null) this.list = new ArrayList<>();
+        if (datas == null) return;
+        if (this.list == null) {
+            setList(datas);
+            return;
+        }
         this.list.addAll(datas);
         notifyItemRangeChanged(this.list.size() - datas.size(), datas.size());
     }
 
     public void addItems(List<Data> datas, int position) {
-        if (this.list == null) this.list = new ArrayList<>();
+        if (datas == null) return;
+        if (this.list == null) {
+            setList(datas);
+            return;
+        }
+        if (this.list.size() - 1 < position) {
+            addItems(datas);
+            return;
+        } ;
         this.list.addAll(position, datas);
         notifyItemRangeChanged(position, datas.size());
     }

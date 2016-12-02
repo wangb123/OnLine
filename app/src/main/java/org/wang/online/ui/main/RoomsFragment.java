@@ -15,8 +15,6 @@ import org.wang.online.ui.BaseAdapter;
 import org.wang.online.ui.BaseFragment;
 import org.wang.online.view.PagingRecyclerView;
 
-import java.util.List;
-
 /**
  * Created by 王冰 on 2016/11/29.
  */
@@ -56,17 +54,23 @@ public class RoomsFragment extends BaseFragment<FragmentRoomsBinding> implements
 
     @Override
     public void onLoadMore(final int page) {
-        PageModel.getPlayers(page, new Callback.SimpleCallback<List<Player>>() {
+        PageModel.getPlayers(page, new Callback.SimpleCallback<PageModel<Player>>() {
             @Override
-            public void onSuccess(List<Player> players) {
-                if (page == 1)
-                    adapter.removeAll();
-                adapter.addItems(players);
+            public void onSuccess(PageModel<Player> players) {
+                if (page == 1) {
+                    adapter.setList(players.getData());
+                } else {
+                    adapter.addItems(players.getData());
+                }
+                getBinding().content.setState(players.getData().size() < players.getSize() ?
+                        PagingRecyclerView.State.Loaded :
+                        PagingRecyclerView.State.Load);
+
             }
 
             @Override
             public void onFail(Error error) {
-
+                getBinding().content.setState(PagingRecyclerView.State.LoadFail);
             }
 
             @Override

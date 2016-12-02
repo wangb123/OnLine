@@ -6,9 +6,8 @@
     <attr name="text_size" format="dimension" />
 
     <declare-styleable name="PagingRecyclerView">
-
         <attr name="emptyLayout" format="reference" />
-
+        <attr name="bottomLayout" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="ChangeColorIconView">

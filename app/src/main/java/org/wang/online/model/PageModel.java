@@ -7,11 +7,9 @@ import org.wang.online.config.FlatMapResponse;
 
 import java.util.List;
 
-import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action0;
-import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 /**
@@ -20,7 +18,7 @@ import rx.schedulers.Schedulers;
 
 public class PageModel<Data> {
 
-    public static final void getPlayers(int index, final Callback<List<Player>> callback) {
+    public static final void getPlayers(int index, final Callback<PageModel<Player>> callback) {
         ApiService.Creator.get().pagePlayers(index == 1 ? "" : "_" + index)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -37,15 +35,7 @@ public class PageModel<Data> {
                     }
                 })
                 .flatMap(new FlatMapResponse<PageModel<Player>>())
-                .flatMap(new Func1<PageModel<Player>, Observable<List<Player>>>() {
-                    @Override
-                    public Observable<List<Player>> call(PageModel<Player> playerPageModel) {
-                        if (playerPageModel != null)
-                            return Observable.just(playerPageModel.getData());
-                        else return Observable.just(null);
-                    }
-                })
-                .subscribe(new Subscriber<List<Player>>() {
+                .subscribe(new Subscriber<PageModel<Player>>() {
                     @Override
                     public void onCompleted() {
 
@@ -60,8 +50,8 @@ public class PageModel<Data> {
                     }
 
                     @Override
-                    public void onNext(List<Player> players) {
-                        if (callback != null) callback.onSuccess(players);
+                    public void onNext(PageModel<Player> playerPageModel) {
+                        if (callback != null) callback.onSuccess(playerPageModel);
                     }
                 });
     }
